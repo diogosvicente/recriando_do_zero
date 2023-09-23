@@ -29,11 +29,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var numeroGerado = 0;
 
-  void _gerarNumeroAleatorio() {
+  int _gerarNumeroAleatorio() {
     Random numeroAleatorio = Random();
-    setState(() {
-      numeroGerado = (numeroAleatorio.nextInt(1000));
-    });
+    return (numeroAleatorio.nextInt(1000));
   }
 
   @override
@@ -45,7 +43,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(child: Text(numeroGerado.toString())),
       floatingActionButton: FloatingActionButton(
-          onPressed: _gerarNumeroAleatorio, child: const Icon(Icons.shuffle)),
+          onPressed: () {
+            setState(() {
+              numeroGerado = _gerarNumeroAleatorio();
+            });
+          },
+          child: const Icon(Icons.shuffle)),
     );
   }
 }
