@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primarySwatch: Colors.red,
-          textTheme: GoogleFonts.pacificoTextTheme()),
+          textTheme: GoogleFonts.robotoTextTheme()
+        ),
       //home: const HomePage(),
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }

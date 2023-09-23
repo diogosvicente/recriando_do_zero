@@ -21,10 +21,10 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 70,
               ),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.amber,
+              const Icon(
+                Icons.person,
+                size: 150,
+                color: Colors.blueAccent,
               ),
               const SizedBox(
                 height: 50,
@@ -32,21 +32,47 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
-                color: Colors.green,
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Informe seu e-mail"),
+                child: const Row(
+                  children: [
+                    Expanded(flex: 2, child: Text("Informe seu e-mail:")),
+                    Expanded(flex: 3, child: Text("E-mail")),
+                  ],
+                ),
               ),
-              const SizedBox(
-                height: 10,
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                height: 30,
+                alignment: Alignment.center,
+                child: const Row(
+                  children: [
+                    Expanded(flex: 2, child: Text("Informe a senha")),
+                    Expanded(flex: 3, child: Text("Senha")),
+                  ],
+                ),
               ),
+              Expanded(child: Container()),
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.symmetric(horizontal: 30),
                 color: Colors.green,
                 height: 30,
                 alignment: Alignment.center,
-                child: const Text("Informe a senha"),
+                child: const Text("Login"),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 30),
+                height: 30,
+                alignment: Alignment.center,
+                child: const Text("Cadastro"),
+              ),
+              const SizedBox(
+                height: 20,
               ),
             ],
           ),
