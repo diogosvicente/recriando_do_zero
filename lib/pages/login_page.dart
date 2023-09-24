@@ -8,8 +8,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var emailController = TextEditingController(text: "email@email.com");
-  var senhaController = TextEditingController(text: "teste");
+  var emailController = TextEditingController(text: "");
+  var senhaController = TextEditingController(text: "");
   bool isObscureText = true;
   @override
   Widget build(BuildContext context) {
@@ -133,8 +133,19 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       child: TextButton(
                           onPressed: () {
-                            debugPrint(emailController.text);
-                            debugPrint(senhaController.text);
+                            if (emailController.text.trim() ==
+                                    "email@email.com" &&
+                                senhaController.text.trim() == "123") {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text("Login efetuado com sucesso!")));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text("Erro ao efetuar o login")));
+                            }
                           },
                           style: ButtonStyle(
                               shape: MaterialStateProperty.all(
