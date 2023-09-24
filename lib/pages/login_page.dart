@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -136,6 +137,10 @@ class _LoginPageState extends State<LoginPage> {
                             if (emailController.text.trim() ==
                                     "email@email.com" &&
                                 senhaController.text.trim() == "123") {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const MainPage()));
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content:
