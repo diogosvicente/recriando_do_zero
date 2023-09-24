@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'dados_cadastrais.dart';
+import 'pagina1.dart';
+import 'pagina2.dart';
+import 'pagina3.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -59,6 +61,20 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView(
+              //scrollDirection: Axis.vertical,
+              children: const [
+                Pagina1Page(),
+                Pagina2Page(),
+                Pagina3Page(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
