@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: TextField(
                     controller: emailController,
                     onChanged: (value) {
-                      debugPrint(value);
+                      //debugPrint(value);
                     },
                     style: const TextStyle(color: Colors.white),
                     decoration: const InputDecoration(
@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                     controller: senhaController,
                     obscureText: isObscureText,
                     onChanged: (value) {
-                      debugPrint(value);
+                      //debugPrint(value);
                     },
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
