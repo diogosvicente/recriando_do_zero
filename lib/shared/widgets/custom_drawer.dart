@@ -11,15 +11,42 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          UserAccountsDrawerHeader(
-              decoration: const BoxDecoration(color: Colors.deepOrangeAccent),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.white,
-                child: Image.network(
-                    "https://hermes.digitalinnovation.one/assets/diome/logo.png"),
-              ),
-              accountName: const Text("Diogo Vicente"),
-              accountEmail: const Text("diogosvicente@gmail.com")),
+          InkWell(
+            onTap: () {
+              showModalBottomSheet(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  context: context,
+                  builder: (BuildContext bc) {
+                    return Wrap(
+                      children: [
+                        ListTile(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          title: Text("Camera"),
+                          leading: Icon(Icons.camera),
+                        ),
+                        ListTile(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            title: Text("Galeria"),
+                            leading: Icon(Icons.photo_album)),
+                      ],
+                    );
+                  });
+            },
+            child: UserAccountsDrawerHeader(
+                decoration: const BoxDecoration(color: Colors.deepOrangeAccent),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Image.network(
+                      "https://hermes.digitalinnovation.one/assets/diome/logo.png"),
+                ),
+                accountName: const Text("Diogo Vicente"),
+                accountEmail: const Text("diogosvicente@gmail.com")),
+          ),
           InkWell(
             child: Container(
                 padding:
@@ -54,7 +81,32 @@ class CustomDrawer extends StatelessWidget {
                     Text("Termos de uso e privacidade"),
                   ],
                 )),
-            onTap: () {},
+            onTap: () {
+              showModalBottomSheet(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  context: context,
+                  builder: (BuildContext bc) {
+                    return Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                        child: Column(
+                          children: [
+                            Text("Termos de uso e privacidade",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold)),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Ao utilizar nosso aplicativo, você concorda em cumprir todas as diretrizes e regulamentos estabelecidos. Respeite os direitos dos outros usuários e não compartilhe informações pessoais sensíveis. Aproveite sua experiência com responsabilidade. Qualquer violação destes termos pode resultar na suspensão ou encerramento da sua conta. Suas informações pessoais serão tratadas com cuidado e não serão compartilhadas sem sua permissão. Se tiver dúvidas ou preocupações, entre em contato conosco através dos meios fornecidos no aplicativo. Obrigado por escolher nosso serviço e aproveite!",
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ));
+                  });
+            },
           ),
           const Divider(),
           const SizedBox(height: 10),
