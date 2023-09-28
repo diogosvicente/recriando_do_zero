@@ -24,15 +24,15 @@ class CustomDrawer extends StatelessWidget {
                           onTap: () {
                             Navigator.pop(context);
                           },
-                          title: Text("Camera"),
-                          leading: Icon(Icons.camera),
+                          title: const Text("Camera"),
+                          leading: const Icon(Icons.camera),
                         ),
                         ListTile(
                             onTap: () {
                               Navigator.pop(context);
                             },
-                            title: Text("Galeria"),
-                            leading: Icon(Icons.photo_album)),
+                            title: const Text("Galeria"),
+                            leading: const Icon(Icons.photo_album)),
                       ],
                     );
                   });
@@ -88,17 +88,40 @@ class CustomDrawer extends StatelessWidget {
                   context: context,
                   builder: (BuildContext bc) {
                     return Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 16, horizontal: 12),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 16, horizontal: 12),
                         child: Column(
                           children: [
-                            Text("Termos de uso e privacidade",
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                            SizedBox(
+                            Row(
+                              children: [
+                                const Expanded(
+                                  flex: 1,
+                                  child: Text(""),
+                                ),
+                                const Expanded(
+                                  flex: 5,
+                                  child: Text("Termos de uso e privacidade",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                                Expanded(
+                                    flex: 1,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: const Icon(
+                                        Icons.close_outlined,
+                                        color: Colors.red,
+                                      ),
+                                    )),
+                              ],
+                            ),
+                            const SizedBox(
                               height: 20,
                             ),
-                            Text(
+                            const Text(
                               "Ao utilizar nosso aplicativo, você concorda em cumprir todas as diretrizes e regulamentos estabelecidos. Respeite os direitos dos outros usuários e não compartilhe informações pessoais sensíveis. Aproveite sua experiência com responsabilidade. Qualquer violação destes termos pode resultar na suspensão ou encerramento da sua conta. Suas informações pessoais serão tratadas com cuidado e não serão compartilhadas sem sua permissão. Se tiver dúvidas ou preocupações, entre em contato conosco através dos meios fornecidos no aplicativo. Obrigado por escolher nosso serviço e aproveite!",
                               textAlign: TextAlign.justify,
                               style: TextStyle(fontSize: 16),
