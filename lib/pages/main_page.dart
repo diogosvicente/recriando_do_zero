@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/shared/widgets/custom_drawer.dart';
-import 'pagina1.dart';
+import 'card_page.dart';
 import 'pagina2.dart';
 import 'pagina3.dart';
 
@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
               },
               //scrollDirection: Axis.vertical,
               children: const [
-                Pagina1Page(),
+                CardPage(),
                 Pagina2Page(),
                 Pagina3Page(),
               ],
